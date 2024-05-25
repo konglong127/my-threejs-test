@@ -1,0 +1,28 @@
+{
+  "name": "test7-preact-24",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cannon-es": "^0.20.0",
+    "gsap": "^3.12.5",
+    "preact": "^10.19.6",
+    "react-router-dom": "^6.22.3",
+    "three": "^0.163.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.2",
+    "@types/gsap": "^3.0.0",
+    "@types/node": "^20.12.12",
+    "@types/three": "^0.163.0",
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}

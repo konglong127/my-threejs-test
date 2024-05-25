@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  text-align: center;
+  margin: 20px;
+}
+
+.fs{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.efs{
+  position: absolute;
+  top: 1%;
+  left: 100px;
+}
+
+.App{
+  padding: 10px;
+}
+
+.line{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,63 @@
+import { useState, lazy, ReactNode, Suspense, useEffect } from 'react';
+import { Route, Routes, useLocation, useRoutes, RouteObject } from 'react-router-dom';
+import Login from '../components/login';
+// import Home from '../components/home';
+const Home = lazy(() => import('../components/home'))
+// import User from '../components/user';
+const User = lazy(() => import('../components/user'))
+// import Role from '../components/role';
+const Role = lazy(() => import('../components/role'))
+// import Detail from '../components/detail';
+const Detail = lazy(() => import('../components/detail'))
+import Access from './access';
+import NotFound from './notfound';
+
+const lazyLoad = (children: ReactNode) => {
+  return <Suspense fallback={<div>loading</div>}>
+    {children}
+  </Suspense>
+}
+
+
+
+export default function index() {
+  const location = useLocation();
+  const [canAccess, setCanAccess] = useState(true);
+
+  useEffect(() => {
+    console.log(location.pathname, 'enter');
+    return () => {
+      console.log(location.pathname, "leave");
+    }
+  }, [location.pathname]);
+
+  const router: RouteObject[] = [
+    { path: '/', element: <Login /> },
+    {
+      path: '/home',
+      element: lazyLoad(<Home />),
+      children: [
+        { index: true, element: <Access isAccess={canAccess} children={<User />} /> },
+        { path: 'detail/:id', element: <Detail /> },
+        { path: 'role', element: <Role /> }
+      ]
+    },
+    {
+      path:'*',
+      element:<NotFound />
+    }
+  ]
+
+  return useRoutes(router);
+
+  // return (<>
+  //   <Routes>
+  //     <Route path='/' element={<Login />}></Route>
+  //     <Route path='/home' element={<Home />}>
+  //       <Route index element={<Access isAccess={true} children={<User />}></Access>}></Route>
+  //       <Route path='detail/:id' element={<Detail />}></Route>
+  //       <Route path='role' element={lazyLoad(<Role />)}></Route>
+  //     </Route>
+  //   </Routes>
+  // </>)
+}
