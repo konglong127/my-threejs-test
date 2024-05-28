@@ -12,6 +12,7 @@ const Test7 = lazy(() => import('../pages/test7'));
 const Test8 = lazy(() => import('../pages/test8'));
 const Test9 = lazy(() => import('../pages/test9'));
 const Test10 = lazy(() => import('../pages/test10'));
+const Test11 = lazy(() => import('../pages/test11'));
 
 const lazyLoad = (children: ReactNode) => {
   return (<Suspense fallback={<div>loading</div>}>
@@ -34,6 +35,7 @@ export default function Router() {
       <Route path='/test8' element={lazyLoad(<Test8 />)}></Route>
       <Route path='/test9' element={lazyLoad(<Test9 />)}></Route>
       <Route path='/test10' element={lazyLoad(<Test10 />)}></Route>
+      <Route path='/test11' element={lazyLoad(<Test11 />)}></Route>
       <Route path='*' element={(<div>404 not found</div>)}></Route>
     </Routes>
   );

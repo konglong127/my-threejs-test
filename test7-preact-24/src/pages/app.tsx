@@ -37,6 +37,9 @@ export default function App() {
       <div className="line">
         <Link to="/test10">test10, 尝试fps?</Link>
       </div>
+      <div className="line">
+        <Link to="/test11">test11, 控制相机盒模型移动, 更近了</Link>
+      </div>
     </div>
   )
 }
